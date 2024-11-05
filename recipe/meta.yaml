@@ -1,5 +1,5 @@
 {% set name = "rastervision-pipeline" %}
-{% set version = "0.13.1" %}
+{% set version = "0.20" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rastervision_pipeline-{{ version }}.tar.gz
-  sha256: 2f4a4bce099aeeb1c59acd948fb1209fce8bbdde58cc2469e2cd9a169e337a95
+  sha256: 530139e5c443db71dcdeea00ad32e8ad04006a94c043ee891b29844922476b61
   patches:
     - 0001-fix-imports.patch
 
