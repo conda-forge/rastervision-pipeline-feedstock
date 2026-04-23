@@ -7,13 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rastervision_pipeline-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/rastervision_pipeline-{{ version }}.tar.gz
   sha256: 2f4a4bce099aeeb1c59acd948fb1209fce8bbdde58cc2469e2cd9a169e337a95
   patches:
     - 0001-fix-imports.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -22,12 +22,12 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - click ==6.*
     - everett ==0.9
     - pydantic ==1.2
-    - python >=3.6
+    - python >={{ python_min }}
     - six ==1.11.*
     - typing-extensions ==3.7.4.1
     - urllib3
@@ -40,6 +40,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/azavea/raster-vision
